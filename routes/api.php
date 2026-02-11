@@ -3,7 +3,8 @@
 use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MenberController;
+use App\Http\Controllers\UserAuthController;
 use function Laravel\Prompts\search;
 
 Route::get('/user', function (Request $request) {
@@ -30,3 +31,10 @@ Route::delete("/delete/{id}", [StudentController::class, "deleteUser2"]);
 Route::get("/search/{id}", [StudentController::class,"searchUser"]);
 
 Route::get("/searchByName/{name}", [StudentController::class,"searchUserByName"]);
+
+
+Route::resource("member", MenberController::class);
+
+
+Route::post("/login", [UserAuthController::class,"login"]);
+Route::post("/signup", [UserAuthController::class,"signup"]);

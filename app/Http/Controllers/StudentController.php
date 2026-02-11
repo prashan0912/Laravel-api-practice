@@ -16,6 +16,8 @@ class StudentController extends Controller
         return User::all();
     }
     //ading new user
+
+    //validation rules
     function addUser(Request $request)
     {
         $rules = array(
